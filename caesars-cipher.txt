@@ -1,0 +1,21 @@
+function rot13(str) {
+  const abcArr = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
+  let tempArr = str.split('');
+  let tempLet = '';
+  let result = [];
+  let index = 0;
+
+  for (let i = 0; i < tempArr.length; i++) {
+    tempLet = tempArr[i];
+    index = abcArr.indexOf(tempLet);
+    if (index != -1) {
+      if (index + 13 > 25) {
+        tempLet = abcArr[(index + 13) - 26]
+      } else tempLet = abcArr[index + 13];
+      result.push(tempLet);
+    } else result.push(tempLet);
+  }
+  return result.join('');
+}
+
+console.log(rot13("SERR PBQR PNZC"));
